@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 const Logo = styled.span`
-  margin: 0 var(--commonMargin) 0 var(--commonMargin);
+  display: flex;
+  cursor: pointer;
+  margin: 0;
+  align-items: center;
 `;
 export default Logo;

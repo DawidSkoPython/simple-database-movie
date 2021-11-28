@@ -4,11 +4,12 @@ import Container from "./Container";
 
 type LayoutProps = {};
 
-export const Layout: React.FC<LayoutProps> = () => {
+export const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Header />
-      <Container>aaaa</Container>
+
+      <Container>{children}</Container>
     </>
   );
 };
