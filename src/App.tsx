@@ -1,9 +1,15 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
+import { BrowserRouter } from "react-router-dom";
+import { Layout } from "./components/layout/Layout";
+import GlobalStyle from "./GlobalStyle";
 
 function App() {
-  return <div className="App">s</div>;
+  return (
+    <BrowserRouter>
+      <GlobalStyle />
+      <Layout />
+    </BrowserRouter>
+  );
 }
 
 export default App;
