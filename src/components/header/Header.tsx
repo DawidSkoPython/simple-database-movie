@@ -3,6 +3,8 @@ import HeaderWrapper from "./HeaderWrapper";
 
 import PopcornIconSvg from "src/themes/icons/popcorn.svg";
 // import PopcornIcon from "src/components/header/PopcornIcon";
+import { GiHamburgerMenu } from "react-icons/gi";
+import { BsToggleOn } from "react-icons/bs";
 
 import Logo from "./Logo";
 import LogoWrapper from "./LogoWrapper";
@@ -12,15 +14,35 @@ import HeaderStyled from "./HeaderStyled";
 type HeaderProps = {};
 
 export const Header: React.FC<HeaderProps> = ({}) => {
+  const isMobile = window.innerHeight <= 576;
   return (
     <HeaderStyled id="header">
       <HeaderWrapper>
-        <LogoWrapper>
-          {/* <Logo id="logo"> */}
-          {/* <PopcornIcon src={PopcornIconSvg} /> */}
-          Popcorn Movies
-          {/* </Logo> */}
-        </LogoWrapper>
+        {isMobile ? (
+          <>
+            <GiHamburgerMenu />
+            {/* <LogoWrapper> */}
+            {/* <Logo id="logo"> */}
+            {/* <PopcornIcon src={PopcornIconSvg} /> */}
+            <div>Popcorn Movies</div>
+            {/* </Logo> */}
+            {/* </LogoWrapper> */}
+
+            <BsToggleOn />
+          </>
+        ) : (
+          <>
+            <GiHamburgerMenu />
+            {/* <LogoWrapper> */}
+            {/* <Logo id="logo"> */}
+            {/* <PopcornIcon src={PopcornIconSvg} /> */}
+            <div>Popcorn Movies</div>
+            {/* </Logo> */}
+            {/* </LogoWrapper> */}
+
+            <BsToggleOn />
+          </>
+        )}
       </HeaderWrapper>
     </HeaderStyled>
   );

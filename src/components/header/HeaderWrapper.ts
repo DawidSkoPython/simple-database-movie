@@ -1,17 +1,12 @@
 import styled from "styled-components";
 
+// used mainly to constrain size
 const HeaderWrapper = styled.div`
-  /* font-size: 50px; */
-  /* color: #f5ede7; */
-  background-color: #07090f;
-  /* font-weight: 600; */
-  height: 100%;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
 
-  /* width: 100%; */
-  /* margin-right: auto; */
-  /* margin-left: auto; */
-
-  /* @media (max-width: 576px) {
+  @media (max-width: 576px) {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -31,7 +26,7 @@ const HeaderWrapper = styled.div`
 
   @media (min-width: 1200px) {
     max-width: 1140px;
-  } */
+  }
 `;
 
 export default HeaderWrapper;
