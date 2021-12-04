@@ -6,10 +6,10 @@ import PopcornIconSvg from "src/themes/icons/popcorn.svg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { BsToggleOn } from "react-icons/bs";
 
-import Logo from "./Logo";
 import LogoWrapper from "./LogoWrapper";
 import PopcornIcon from "./PopcornIcon";
 import HeaderStyled from "./HeaderStyled";
+import Logo from "./logo/Logo";
 
 type HeaderProps = {};
 
@@ -24,8 +24,8 @@ export const Header: React.FC<HeaderProps> = ({}) => {
             {/* <LogoWrapper> */}
             {/* <Logo id="logo"> */}
             {/* <PopcornIcon src={PopcornIconSvg} /> */}
-            <div>Popcorn Movies</div>
-            {/* </Logo> */}
+            {/* <div>Popcorn Movies</div> */}
+            <Logo />
             {/* </LogoWrapper> */}
 
             <BsToggleOn />
@@ -36,8 +36,8 @@ export const Header: React.FC<HeaderProps> = ({}) => {
             {/* <LogoWrapper> */}
             {/* <Logo id="logo"> */}
             {/* <PopcornIcon src={PopcornIconSvg} /> */}
-            <div>Popcorn Movies</div>
-            {/* </Logo> */}
+            {/* <div>Popcorn Movies</div> */}
+            <Logo />
             {/* </LogoWrapper> */}
 
             <BsToggleOn />
