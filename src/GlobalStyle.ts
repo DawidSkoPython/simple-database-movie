@@ -5,6 +5,8 @@ const GlobalStyle = createGlobalStyle`
 
 html {
     box-sizing: border-box;
+    font-family: Bebas Neue,serif;
+    margin: 0;
 }
 *,
 *::before,

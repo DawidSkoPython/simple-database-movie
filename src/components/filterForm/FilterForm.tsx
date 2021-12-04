@@ -1,25 +1,19 @@
 import React from "react";
-import Select from "../select/Select";
+import Select, { OptionSchema } from "../select/Select";
+import FilterFormWrapper from "./FilterFormWrapper";
+
+let options: OptionSchema[] = [];
+for (let i = 0; i < 10; i++) {
+  options.push({ id: i, text: "something1", value: "sdss" });
+}
 
 export const FilterForm = () => {
   return (
-    <>
-      <Select>
-        <option value="0">Select car:</option>
-        <option value="1">Audi</option>
-        <option value="2">BMW</option>
-        <option value="3">Citroen</option>
-        <option value="4">Ford</option>
-        <option value="5">Honda</option>
-        <option value="6">Jaguar</option>
-        <option value="7">Land Rover</option>
-        <option value="8">Mercedes</option>
-        <option value="9">Mini</option>
-        <option value="10">Nissan</option>
-        <option value="11">Toyota</option>
-        <option value="12">Volvo</option>
-      </Select>
-    </>
+    <FilterFormWrapper>
+      <Select options={options} label="Sorty by" onChange={() => ({})} />
+      <Select options={options} label="Year" onChange={() => ({})} />
+      {/* <Select options={options} label="Genre" onChange={() => ({})} /> */}
+    </FilterFormWrapper>
   );
 };
 
