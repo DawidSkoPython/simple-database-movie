@@ -12,7 +12,7 @@ export const FilterForm = () => {
     <FilterFormWrapper>
       <Select options={options} label="Sorty by" onChange={() => ({})} />
       <Select options={options} label="Year" onChange={() => ({})} />
-      {/* <Select options={options} label="Genre" onChange={() => ({})} /> */}
+      <Select options={options} label="Genre" onChange={() => ({})} />
     </FilterFormWrapper>
   );
 };

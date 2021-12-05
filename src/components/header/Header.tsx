@@ -10,6 +10,8 @@ import LogoWrapper from "./LogoWrapper";
 import PopcornIcon from "./PopcornIcon";
 import HeaderStyled from "./HeaderStyled";
 import Logo from "./logo/Logo";
+import Hamburger from "./hamburger/Hamburger";
+import ThemeToggle from "./themeToggle/ThemeToggle";
 
 type HeaderProps = {};
 
@@ -20,7 +22,8 @@ export const Header: React.FC<HeaderProps> = ({}) => {
       <HeaderWrapper>
         {isMobile ? (
           <>
-            <GiHamburgerMenu />
+            {/* <GiHamburgerMenu /> */}
+            <Hamburger />
             {/* <LogoWrapper> */}
             {/* <Logo id="logo"> */}
             {/* <PopcornIcon src={PopcornIconSvg} /> */}
@@ -28,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
             <Logo />
             {/* </LogoWrapper> */}
 
-            <BsToggleOn />
+            <ThemeToggle />
           </>
         ) : (
           <>
@@ -40,7 +43,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
             <Logo />
             {/* </LogoWrapper> */}
 
-            <BsToggleOn />
+            <ThemeToggle />
           </>
         )}
       </HeaderWrapper>
