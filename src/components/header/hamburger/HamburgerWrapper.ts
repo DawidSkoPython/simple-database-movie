@@ -3,7 +3,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 
 const HamburgerWrapper = styled(GiHamburgerMenu)`
   margin: 5px;
-  font-size: xx-large;
+  font-size: 32px;
 `;
 
 export default HamburgerWrapper;

@@ -5,9 +5,27 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import counter from "./reducer";
+import allReducer from "./reducers";
+import { Provider } from "react-redux";
+import thunk from "redux-thunk";
+
+//DISPATCH
+const store = createStore(allReducer, applyMiddleware(thunk));
+
+//Display in the console
+store.subscribe(() => console.log(store.getState()));
+
+//DISPATCH
+// store.dispatch(increment());
+// store.dispatch(decrement());
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById("root")
 );

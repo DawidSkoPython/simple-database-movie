@@ -35,7 +35,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
           </>
         ) : (
           <>
-            <GiHamburgerMenu />
+            <Hamburger />
             {/* <LogoWrapper> */}
             {/* <Logo id="logo"> */}
             {/* <PopcornIcon src={PopcornIconSvg} /> */}
