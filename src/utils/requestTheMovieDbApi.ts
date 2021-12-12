@@ -1,6 +1,7 @@
 import config from "src/config";
 
 const { apiUrl } = config;
+const apiKey = "09ddde9260c791abe3d1f93343772459";
 
 const parseQueryParameters = (queryParameters: Record<string, any> = {}) => {
   let parsedQueryParameters = "";
