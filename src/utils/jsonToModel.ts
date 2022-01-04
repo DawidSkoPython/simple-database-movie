@@ -45,6 +45,7 @@ function jsonToModel(json: any, model: Record<string, any>) {
     // console.log("rawValue: ", rawValue);
     parsedModel[key] = normalizeValue(rawValue, normalizeSchema);
   });
+  console.log('what is the parsedmodel? ', parsedModel)
   return parsedModel;
 }
 

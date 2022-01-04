@@ -21,13 +21,15 @@ export const Discover = () => {
   // const { options, pagination, movies } = state.discover;
 
   const { movies } = useSelector((state: RootState) => state.discoverReducer);
+  
+  
   const { year, sort, genres } = useSelector((state: RootState) => state.discoverReducer).options;
   const isMounted = useRef<boolean>(false);
   const counter = useSelector((state: any) => state.requestsReducer);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("MOVIES: ", movies, year, sort, genres);
+    console.log("MOVIES HERE?: ", movies, year, sort, genres);
     if (isMounted.current || !movies) {
       dispatch(
         requestApi(
@@ -51,7 +53,7 @@ export const Discover = () => {
             try {
               const { movies: newMovies, totalPages } = jsonToModel(rawData, moviesListModel);
               console.log("MOVIES: ", newMovies);
-              return dispatch(discoverSetMovies(rawData));
+              return dispatch(discoverSetMovies(newMovies));
             } catch (e) {
               // console.log("SOMETHING IS WRONG?");
               return "xddd";
@@ -61,16 +63,20 @@ export const Discover = () => {
       );
     }
   }, []);
+
+  console.log("MOVIES654: ", movies);
   return (
     <DiscoverWrapper id="discoverWrapper">
       <Heading>Dicover movies {counter}</Heading>
       <FilterForm />
+      {console.log(1)}
       {/* <MovieList /> */}
       <h1>Counter {counter}</h1>
       <button onClick={() => dispatch(increment())}>DODAJ</button>
-      <MovieList movies={movies as any[]}>
+      {
+      Array.isArray(movies) &&  <MovieList movies={movies as any[]}>
     
-      </MovieList>
+      </MovieList> }
     
     </DiscoverWrapper>
   );
