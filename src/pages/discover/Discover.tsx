@@ -50,7 +50,7 @@ export const Discover = () => {
 
             try {
               const { movies: newMovies, totalPages } = jsonToModel(rawData, moviesListModel);
-
+              console.log("MOVIES: ", newMovies);
               return dispatch(discoverSetMovies(rawData));
             } catch (e) {
               // console.log("SOMETHING IS WRONG?");
@@ -68,6 +68,10 @@ export const Discover = () => {
       {/* <MovieList /> */}
       <h1>Counter {counter}</h1>
       <button onClick={() => dispatch(increment())}>DODAJ</button>
+      <MovieList movies={movies as any[]}>
+    
+      </MovieList>
+    
     </DiscoverWrapper>
   );
 };

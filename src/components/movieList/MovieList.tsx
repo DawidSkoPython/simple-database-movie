@@ -2,10 +2,12 @@ import React from "react";
 import MovieListWrapper from "./MovieListWrapper";
 
 type MovieListProps = {
-  movie: any[];
+  movies: any[];
 };
 
-export const MovieList: React.FC<MovieListProps> = ({ movie }) => {
+export const MovieList: React.FC<MovieListProps> = ({ movies }) => {
+  console.log('LOADED movies: ', movies)
+  
   const renderMovies = (center: boolean, content: any) => {
     return (
       <>
