@@ -7,7 +7,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import counter from "./reducer";
-import allReducer from "./reducers";
+import allReducer from "./redux/reducers";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 

@@ -1,6 +1,11 @@
-export const increment = () => {
+import { REQUEST_IS_PENDING } from "../actionTypes/requests";
+import { ActionParams } from "../reducers/requests";
+
+export const increment = (): ActionParams => {
   return {
-    type: "INCREMENT",
+    id: "details",
+    type: REQUEST_IS_PENDING,
+    responseData: null,
   };
 };
 
