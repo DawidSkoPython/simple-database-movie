@@ -60,14 +60,12 @@
   },
   "devDependencies": {
     "chai": "^4.2.0",
-    "enzyme": "^3.9.0",
-    "enzyme-adapter-react-16": "^1.11.2",
+
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-standard": "^4.0.0",
     "fetch-mock": "^7.3.1",
     "prop-types": "^15.7.2",
     "react-router-prop-types": "^1.0.4",
-    "react-test-renderer": "^16.8.6",
     "redux": "^4.0.1",
     "redux-mock-store": "^1.5.3",
     "redux-thunk": "^2.4.1",
