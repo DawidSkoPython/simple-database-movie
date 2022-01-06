@@ -12,7 +12,10 @@ import { requestApi, requestError } from "src/redux/actions/requests";
 import jsonToModel from "src/utils/jsonToModel";
 import { discoverSetMovies } from "src/redux/actions/discover";
 
-import { useSelector as useReduxSelector, TypedUseSelectorHook } from "react-redux";
+import {
+  useSelector as useReduxSelector,
+  TypedUseSelectorHook,
+} from "react-redux";
 import allReducers, { RootState } from "src/redux/reducers";
 import moviesListModel from "src/models/movieList";
 
@@ -21,9 +24,10 @@ export const Discover = () => {
   // const { options, pagination, movies } = state.discover;
 
   const { movies } = useSelector((state: RootState) => state.discoverReducer);
-  
-  
-  const { year, sort, genres } = useSelector((state: RootState) => state.discoverReducer).options;
+
+  const { year, sort, genres } = useSelector(
+    (state: RootState) => state.discoverReducer
+  ).options;
   const isMounted = useRef<boolean>(false);
   const counter = useSelector((state: any) => state.requestsReducer);
   const dispatch = useDispatch();
@@ -51,7 +55,10 @@ export const Discover = () => {
             }
 
             try {
-              const { movies: newMovies, totalPages } = jsonToModel(rawData, moviesListModel);
+              const { movies: newMovies, totalPages } = jsonToModel(
+                rawData,
+                moviesListModel
+              );
               console.log("MOVIES: ", newMovies);
               return dispatch(discoverSetMovies(newMovies));
             } catch (e) {
@@ -71,13 +78,9 @@ export const Discover = () => {
       <FilterForm />
       {console.log(1)}
       {/* <MovieList /> */}
-      <h1>Counter {counter}</h1>
-      <button onClick={() => dispatch(increment())}>DODAJ</button>
-      {
-      Array.isArray(movies) &&  <MovieList movies={movies as any[]}>
-    
-      </MovieList> }
-    
+      {Array.isArray(movies) && (
+        <MovieList movies={movies as any[]}></MovieList>
+      )}
     </DiscoverWrapper>
   );
 };

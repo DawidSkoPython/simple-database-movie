@@ -10,8 +10,8 @@ type MovieListProps = {
 };
 
 export const MovieList: React.FC<MovieListProps> = ({ movies }) => {
-  console.log('LOADED movies: ', movies)
-  
+  console.log("LOADED movies: ", movies);
+
   const getPosterSource = (posterPath: string) => {
     const isMobile = window.innerWidth <= 768;
     if (posterPath) {
@@ -28,9 +28,28 @@ export const MovieList: React.FC<MovieListProps> = ({ movies }) => {
     );
   };
 
-  return <>{movies && movies.map((movie: any) => 
-  <Movie posterSrc={getPosterSource(movie.posterPath as string)}>
-  </Movie>)}</>;
+  return renderMovies(
+    true,
+    movies.map((movie: any) => (
+      <Movie
+        title={movie.title}
+        metainformation={movie.releaseDate}
+        posterSrc={getPosterSource(movie.posterPath as string)}
+        description={movie.description}
+      ></Movie>
+    ))
+  );
+  {
+    /* {movies &&
+        movies.map((movie: any) => (
+          <Movie
+            title={movie.title}
+            metainformation={movie.releaseDate}
+            posterSrc={getPosterSource(movie.posterPath as string)}
+            description={movie.description}
+          ></Movie>
+        ))} */
+  }
 };
 
 export default MovieList;
