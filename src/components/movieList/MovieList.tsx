@@ -1,5 +1,6 @@
 import React from "react";
 import config from "src/config";
+import Pagination from "../pagination/Pagination";
 import Movie from "./movie/Movie";
 import MovieListWrapper from "./MovieListWrapper";
 
@@ -7,9 +8,15 @@ const { imageServiceUrl, mobileImageSizeUrl, desktopImageSizeUrl } = config;
 
 type MovieListProps = {
   movies: any[];
+  totalPages: number;
+  currentPage: number;
 };
 
-export const MovieList: React.FC<MovieListProps> = ({ movies }) => {
+export const MovieList: React.FC<MovieListProps> = ({
+  movies,
+  totalPages,
+  currentPage,
+}) => {
   console.log("LOADED movies: ", movies);
 
   const getPosterSource = (posterPath: string) => {
@@ -23,7 +30,9 @@ export const MovieList: React.FC<MovieListProps> = ({ movies }) => {
   const renderMovies = (center: boolean, content: any) => {
     return (
       <>
+        <Pagination total={totalPages} current={currentPage}></Pagination>
         <MovieListWrapper>{content}</MovieListWrapper>
+        <Pagination total={totalPages} current={currentPage}></Pagination>
       </>
     );
   };

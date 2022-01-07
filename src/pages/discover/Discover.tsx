@@ -10,7 +10,10 @@ import requestReducer, { requestsIds } from "src/redux/reducers/requests";
 import { REQUEST_IS_PENDING } from "src/redux/actionTypes/requests";
 import { requestApi, requestError } from "src/redux/actions/requests";
 import jsonToModel from "src/utils/jsonToModel";
-import { discoverSetMovies } from "src/redux/actions/discover";
+import {
+  discoverSetMovies,
+  discoverSetPagination,
+} from "src/redux/actions/discover";
 
 import {
   useSelector as useReduxSelector,
@@ -23,8 +26,10 @@ export const Discover = () => {
   // const [state, dispatch] = useSelector();
   // const { options, pagination, movies } = state.discover;
 
-  const { movies } = useSelector((state: RootState) => state.discoverReducer);
-
+  const { movies, options, pagination } = useSelector(
+    (state: RootState) => state.discoverReducer
+  );
+  const { current, total } = pagination;
   const { year, sort, genres } = useSelector(
     (state: RootState) => state.discoverReducer
   ).options;
@@ -60,7 +65,8 @@ export const Discover = () => {
                 moviesListModel
               );
               console.log("MOVIES: ", newMovies);
-              return dispatch(discoverSetMovies(newMovies));
+              dispatch(discoverSetMovies(newMovies));
+              return dispatch(discoverSetPagination({ totalPages }));
             } catch (e) {
               // console.log("SOMETHING IS WRONG?");
               return "xddd";
@@ -79,7 +85,11 @@ export const Discover = () => {
       {console.log(1)}
       {/* <MovieList /> */}
       {Array.isArray(movies) && (
-        <MovieList movies={movies as any[]}></MovieList>
+        <MovieList
+          movies={movies as any[]}
+          totalPages={total}
+          currentPage={current}
+        ></MovieList>
       )}
     </DiscoverWrapper>
   );
