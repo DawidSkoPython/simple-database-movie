@@ -1,4 +1,15 @@
-const Themes = {
+type Colors = { colors: Record<string, any> };
+
+export type ThemesProps = {
+  light: Colors;
+  dark: Colors;
+};
+
+export type Theme = {
+  theme: { colors: Record<string, any> };
+};
+
+const Themes: ThemesProps = {
   light: {
     colors: {
       primary: "#F2355B",

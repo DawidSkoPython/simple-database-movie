@@ -17,6 +17,10 @@ export const Pagination: React.FC<PaginationProps> = ({
   const calculatePages = () => {
     const pagesToShow = [1, total];
 
+    if (current !== 1 && current !== total) {
+      pagesToShow.push(current);
+    }
+
     for (let i = 1; i < 4; i++) {
       if (current + i < total) {
         pagesToShow.push(current + i);
@@ -36,7 +40,11 @@ export const Pagination: React.FC<PaginationProps> = ({
     <PaginationWrapper>
       <PaginationStyled>
         {pagesToShow.map((page: number) => (
-          <PageNumber key={page} onClick={() => onPageChange(page)}>
+          <PageNumber
+            isActive={true}
+            key={page}
+            onClick={() => onPageChange(page)}
+          >
             {page}
           </PageNumber>
         ))}

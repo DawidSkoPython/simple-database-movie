@@ -19,6 +19,7 @@ export const MovieList: React.FC<MovieListProps> = ({
   currentPage,
   onPageChange,
 }) => {
+  console.log("MOVIE LIST?: ", movies);
   const getPosterSource = (posterPath: string) => {
     const isMobile = window.innerWidth <= 768;
     if (posterPath) {

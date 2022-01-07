@@ -6,11 +6,15 @@ import Header from "./components/header/Header";
 import { Discover } from "./pages/discover/Discover";
 import { ThemeProvider } from "styled-components";
 import Themes from "./themes/Themes";
+import { RootState } from "./redux/reducers";
+import { useSelector } from "react-redux";
 
 function App() {
+  const { theme } = useSelector((state: RootState) => state.globalReducer);
+  console.log("what is the theme?: ", Themes[theme as "light" | "dark"]);
   return (
     <BrowserRouter>
-      <ThemeProvider theme={Themes}>
+      <ThemeProvider theme={Themes[theme as "light" | "dark"]}>
         <GlobalStyle />
         <Layout>
           <Switch>
