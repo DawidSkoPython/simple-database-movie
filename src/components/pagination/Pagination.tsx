@@ -1,15 +1,19 @@
 import React from "react";
 import PageNumber from "./PageNumber";
+import PaginationStyled from "./PaginationStyled";
 import PaginationWrapper from "./PaginationWrapper";
 
 export type PaginationProps = {
   total: number;
   current: number;
+  onPageChange: (page: number) => void;
 };
 
-export const Pagination: React.FC<PaginationProps> = ({ total, current }) => {
-  console.log("total: ", total, "currentPage: ", current);
-
+export const Pagination: React.FC<PaginationProps> = ({
+  total,
+  current,
+  onPageChange,
+}) => {
   const calculatePages = () => {
     const pagesToShow = [1, total];
 
@@ -30,9 +34,13 @@ export const Pagination: React.FC<PaginationProps> = ({ total, current }) => {
 
   return (
     <PaginationWrapper>
-      {pagesToShow.map((page: number) => (
-        <PageNumber key={page}>{page}</PageNumber>
-      ))}
+      <PaginationStyled>
+        {pagesToShow.map((page: number) => (
+          <PageNumber key={page} onClick={() => onPageChange(page)}>
+            {page}
+          </PageNumber>
+        ))}
+      </PaginationStyled>
     </PaginationWrapper>
   );
 };

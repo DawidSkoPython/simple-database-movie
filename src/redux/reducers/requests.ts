@@ -1,5 +1,10 @@
 import createRequestInititalState from "src/utils/createRequestInitalState";
-import { REQUEST_CLEAR, REQUEST_ERROR, REQUEST_IS_PENDING, REQUEST_SUCCESS } from "../actionTypes/requests";
+import {
+  REQUEST_CLEAR,
+  REQUEST_ERROR,
+  REQUEST_IS_PENDING,
+  REQUEST_SUCCESS,
+} from "../actionTypes/requests";
 
 export type RequestIdsParams = {
   details: "details";
@@ -15,11 +20,14 @@ export const requestsIds = {
   search: "search",
 };
 
-export type ActionParams = { id: keyof RequestIdsParams; responseData?: any; type?: string };
+export type ActionParams = {
+  id: keyof RequestIdsParams;
+  responseData?: any;
+  type?: string;
+};
 export const initialState = createRequestInititalState(requestsIds);
 
 const requestReducer = (state: any = initialState, action: ActionParams) => {
-  console.log("here?", state, action);
   switch (action.type) {
     case REQUEST_IS_PENDING: {
       const { id } = action;

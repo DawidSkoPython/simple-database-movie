@@ -1,5 +1,4 @@
 const getMoviesReducer = (state: any = [], action: { type: string }) => {
-  console.log("state: ", state);
   switch (action.type) {
     case "INCREMENT":
       return state + 1;

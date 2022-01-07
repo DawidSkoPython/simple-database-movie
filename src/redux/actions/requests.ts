@@ -1,5 +1,9 @@
 import requestTheMovieDbApi from "src/utils/requestTheMovieDbApi";
-import { REQUEST_ERROR, REQUEST_IS_PENDING, REQUEST_SUCCESS } from "../actionTypes/requests";
+import {
+  REQUEST_ERROR,
+  REQUEST_IS_PENDING,
+  REQUEST_SUCCESS,
+} from "../actionTypes/requests";
 
 export type RequestParams = {
   endpoint: string;
@@ -30,10 +34,12 @@ export const requestSuccess = (id: string, responseData: any) => ({
 
 // id - discover
 export const requestApi =
-  (id: string, request: RequestParams, afterSuccess = (response: any) => ({})) =>
+  (
+    id: string,
+    request: RequestParams,
+    afterSuccess = (response: any) => ({})
+  ) =>
   async (dispatch: (something: Record<string, any>) => void) => {
-    console.log("am i hereee?123", id);
-
     try {
       requestIsPending(id);
       const response = await requestTheMovieDbApi(request);

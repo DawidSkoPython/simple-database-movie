@@ -30,6 +30,7 @@ export const Discover = () => {
     (state: RootState) => state.discoverReducer
   );
   const { current, total } = pagination;
+
   const { year, sort, genres } = useSelector(
     (state: RootState) => state.discoverReducer
   ).options;
@@ -38,7 +39,6 @@ export const Discover = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log("MOVIES HERE?: ", movies, year, sort, genres);
     if (isMounted.current || !movies) {
       dispatch(
         requestApi(
@@ -48,7 +48,7 @@ export const Discover = () => {
             queryParameters: {
               primary_release_year: year,
               sorty_by: sort,
-              page: 1,
+              page: pagination.current,
               with_genres: genres,
             },
           },
@@ -64,31 +64,38 @@ export const Discover = () => {
                 rawData,
                 moviesListModel
               );
-              console.log("MOVIES: ", newMovies);
+
               dispatch(discoverSetMovies(newMovies));
-              return dispatch(discoverSetPagination({ totalPages }));
+
+              return dispatch(discoverSetPagination({ total: totalPages }));
             } catch (e) {
-              // console.log("SOMETHING IS WRONG?");
+              // ("SOMETHING IS WRONG?");
               return "xddd";
             }
           }
         )
       );
     }
-  }, []);
+    isMounted.current = true;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [current, sort, genres, year]);
 
-  console.log("MOVIES654: ", movies);
+  const onPageChange = (pageNumber: number) => {
+    dispatch(discoverSetPagination({ current: pageNumber }));
+  };
+
   return (
     <DiscoverWrapper id="discoverWrapper">
       <Heading>Dicover movies {counter}</Heading>
       <FilterForm />
-      {console.log(1)}
+
       {/* <MovieList /> */}
       {Array.isArray(movies) && (
         <MovieList
           movies={movies as any[]}
           totalPages={total}
           currentPage={current}
+          onPageChange={onPageChange}
         ></MovieList>
       )}
     </DiscoverWrapper>

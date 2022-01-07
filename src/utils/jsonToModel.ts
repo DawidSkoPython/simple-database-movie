@@ -16,12 +16,19 @@ function normalizeValue(value: any, schema: any) {
       // eslint-disable-next-line no-use-before-define
       return value.map((e) => jsonToModel(e, schema.model));
     }
-    throw new Error(`${schema.key} is of type ${typeof value}, expected ${schema.type}`);
+    throw new Error(
+      `${schema.key} is of type ${typeof value}, expected ${schema.type}`
+    );
   }
 
   // eslint-disable-next-line valid-typeof
-  if (schema.type && typeof value !== schema.type.toString().toLocaleLowerCase()) {
-    throw new Error(`${schema.key} is of type ${typeof value}, expected ${schema.type}`);
+  if (
+    schema.type &&
+    typeof value !== schema.type.toString().toLocaleLowerCase()
+  ) {
+    throw new Error(
+      `${schema.key} is of type ${typeof value}, expected ${schema.type}`
+    );
   }
 
   if (schema.transform) {
@@ -35,17 +42,16 @@ function jsonToModel(json: any, model: Record<string, any>) {
   //   debugger;
   const parsedModel: { [k in keyof Record<string, any>]?: any } = {};
   Object.entries(model).forEach((e) => {
-
-    // console.log("model: ", e);
+    // ("model: ", e);
     const [key, value] = e;
     const normalizeSchema = model[key];
-    // console.log("normalizeSchema: ", normalizeSchema);
-    // console.log("gimme json: ", json);
+    // ("normalizeSchema: ", normalizeSchema);
+    // ("gimme json: ", json);
     const rawValue = json[(value as any).key];
-    // console.log("rawValue: ", rawValue);
+    // ("rawValue: ", rawValue);
     parsedModel[key] = normalizeValue(rawValue, normalizeSchema);
   });
-  console.log('what is the parsedmodel? ', parsedModel)
+
   return parsedModel;
 }
 

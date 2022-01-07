@@ -52,7 +52,8 @@ const discoverReducer = (
     case DISCOVER_SET_PAGINATION: {
       const { pagination } = action;
       const newState = { ...state };
-      newState.pagination = pagination;
+      newState.pagination = { ...newState.pagination, ...pagination };
+
       return newState;
     }
     default:

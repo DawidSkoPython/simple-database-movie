@@ -10,15 +10,15 @@ type MovieListProps = {
   movies: any[];
   totalPages: number;
   currentPage: number;
+  onPageChange: (page: number) => void;
 };
 
 export const MovieList: React.FC<MovieListProps> = ({
   movies,
   totalPages,
   currentPage,
+  onPageChange,
 }) => {
-  console.log("LOADED movies: ", movies);
-
   const getPosterSource = (posterPath: string) => {
     const isMobile = window.innerWidth <= 768;
     if (posterPath) {
@@ -30,9 +30,17 @@ export const MovieList: React.FC<MovieListProps> = ({
   const renderMovies = (center: boolean, content: any) => {
     return (
       <>
-        <Pagination total={totalPages} current={currentPage}></Pagination>
+        <Pagination
+          onPageChange={onPageChange}
+          total={totalPages}
+          current={currentPage}
+        ></Pagination>
         <MovieListWrapper>{content}</MovieListWrapper>
-        <Pagination total={totalPages} current={currentPage}></Pagination>
+        <Pagination
+          onPageChange={onPageChange}
+          total={totalPages}
+          current={currentPage}
+        ></Pagination>
       </>
     );
   };
@@ -41,6 +49,7 @@ export const MovieList: React.FC<MovieListProps> = ({
     true,
     movies.map((movie: any) => (
       <Movie
+        key={movie.id}
         title={movie.title}
         metainformation={movie.releaseDate}
         posterSrc={getPosterSource(movie.posterPath as string)}
