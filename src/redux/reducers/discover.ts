@@ -37,9 +37,11 @@ const discoverReducer = (
 ) => {
   switch (action.type) {
     case DISCOVER_SET_OPTIONS: {
+      console.log("OPTIONS: ", action);
       const { options } = action as DiscoverSetOptionsParams;
       let newState = { ...state };
       newState.options = { ...newState.options, ...options };
+      console.log("NEW STATE: ", newState);
       return newState;
     }
     case DISCOVER_SET_MOVIES: {

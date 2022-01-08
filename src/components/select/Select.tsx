@@ -13,14 +13,14 @@ export type OptionSchema = {
 type SelectProps = {
   label: string;
   options: OptionSchema[];
-  // onChange: (e: CustomEvent) => void;
+  onChange: (value: string) => void;
 } & React.ComponentPropsWithoutRef<"select">;
 
-export const Select: React.FC<SelectProps> = ({ label, options }) => {
+export const Select: React.FC<SelectProps> = ({ label, options, onChange }) => {
   return (
     <SelectWrapper>
       <Label>{label}</Label>
-      <SelectStyled>
+      <SelectStyled onChange={onChange}>
         {options.map((option: OptionSchema) => (
           <option value={option.value} key={option.id}>
             {option.text}

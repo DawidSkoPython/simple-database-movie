@@ -8,10 +8,10 @@ import {
 export type RequestParams = {
   endpoint: string;
   queryParameters: {
-    primary_release_year: string;
-    sorty_by: string;
-    page: number;
-    with_genres: string;
+    primary_release_year?: string;
+    sort_by?: string;
+    page?: number;
+    with_genres?: string;
   };
 };
 

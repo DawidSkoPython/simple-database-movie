@@ -48,7 +48,7 @@ export const Discover = () => {
             endpoint: "/discover/movie",
             queryParameters: {
               primary_release_year: year ?? "",
-              sorty_by: sort ?? "",
+              sort_by: sort ?? "",
               page: pagination.current,
               with_genres: genres ?? "",
             },
@@ -86,6 +86,7 @@ export const Discover = () => {
   };
 
   const onSortChange = (value: string) => {
+    console.log("onSortChange: ", value);
     dispatch(discoverSetOptions({ sort: value }));
   };
 
@@ -94,16 +95,22 @@ export const Discover = () => {
   };
 
   const onYearChange = (value: string) => {
-    dispatch(discoverSetOptions({ genres: value }));
+    dispatch(discoverSetOptions({ year: value }));
   };
 
   return (
     <DiscoverWrapper id="discoverWrapper">
       <Heading>Dicover movies {counter}</Heading>
       <FilterForm
-        onGenreChange={onGenreChange}
-        onSortChange={onSortChange}
-        onYearChange={onYearChange}
+        onGenreChange={(event: any) => {
+          console.log("EVENT: ", event);
+          onGenreChange(event.target.value);
+        }}
+        onSortChange={(event: any) => {
+          console.log("EVENT: ", event);
+          onSortChange(event.target.value);
+        }}
+        onYearChange={(event: any) => onYearChange(event.target.value)}
       />
 
       {/* <MovieList /> */}
