@@ -1,4 +1,5 @@
 import React from "react";
+import Button from "./Button";
 import PageNumber from "./PageNumber";
 import PaginationStyled from "./PaginationStyled";
 import PaginationWrapper from "./PaginationWrapper";
@@ -35,19 +36,25 @@ export const Pagination: React.FC<PaginationProps> = ({
   };
 
   const pagesToShow = calculatePages();
-
+  console.log("CURRENT: ", current);
   return (
     <PaginationWrapper>
       <PaginationStyled>
+        {current > 1 && (
+          <Button onClick={() => onPageChange(current - 1)}>← Previous</Button>
+        )}
         {pagesToShow.map((page: number) => (
           <PageNumber
-            isActive={true}
+            isActive={page === current}
             key={page}
             onClick={() => onPageChange(page)}
           >
             {page}
           </PageNumber>
         ))}
+        {current < total && (
+          <Button onClick={() => onPageChange(current + 1)}> Next →</Button>
+        )}
       </PaginationStyled>
     </PaginationWrapper>
   );
