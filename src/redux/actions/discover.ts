@@ -10,9 +10,9 @@ export type DiscoverSetMoviesParams = {
 };
 
 export type Options = {
-  year: string;
-  sort: string;
-  genres: string;
+  year?: string;
+  sort?: string;
+  genres?: string;
 };
 
 export type DiscoverSetOptionsParams = {

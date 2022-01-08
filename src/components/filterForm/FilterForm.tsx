@@ -5,12 +5,34 @@ import genreOptions from "./genreOptions";
 import sortOptions from "./sortOptions";
 import yearOptions from "./yearOptions";
 
-export const FilterForm = () => {
+export type FilterFormProps = {
+  onGenreChange: (value: string) => void;
+  onSortChange: (value: string) => void;
+  onYearChange: (value: string) => void;
+};
+
+export const FilterForm: React.FC<FilterFormProps> = ({
+  onGenreChange,
+  onSortChange,
+  onYearChange,
+}) => {
   return (
     <FilterFormWrapper>
-      <Select options={sortOptions} label="Sorty by" onChange={() => ({})} />
-      <Select options={yearOptions} label="Year" onChange={() => ({})} />
-      <Select options={genreOptions} label="Genre" onChange={() => ({})} />
+      <Select
+        options={sortOptions}
+        label="Sorty by"
+        onChange={(event: any) => onSortChange(event.detail.value)}
+      />
+      <Select
+        options={yearOptions}
+        label="Year"
+        onChange={(event: any) => onYearChange(event.detail.value)}
+      />
+      <Select
+        options={genreOptions}
+        label="Genre"
+        onChange={(event: any) => onGenreChange(event.detail.value)}
+      />
     </FilterFormWrapper>
   );
 };

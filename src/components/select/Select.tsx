@@ -13,7 +13,7 @@ export type OptionSchema = {
 type SelectProps = {
   label: string;
   options: OptionSchema[];
-  onChange: () => void;
+  // onChange: (e: CustomEvent) => void;
 } & React.ComponentPropsWithoutRef<"select">;
 
 export const Select: React.FC<SelectProps> = ({ label, options }) => {

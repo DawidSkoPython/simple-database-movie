@@ -12,6 +12,7 @@ import { requestApi, requestError } from "src/redux/actions/requests";
 import jsonToModel from "src/utils/jsonToModel";
 import {
   discoverSetMovies,
+  discoverSetOptions,
   discoverSetPagination,
 } from "src/redux/actions/discover";
 
@@ -46,10 +47,10 @@ export const Discover = () => {
           {
             endpoint: "/discover/movie",
             queryParameters: {
-              primary_release_year: year,
-              sorty_by: sort,
+              primary_release_year: year ?? "",
+              sorty_by: sort ?? "",
               page: pagination.current,
-              with_genres: genres,
+              with_genres: genres ?? "",
             },
           },
           (rawData: any) => {
@@ -84,10 +85,26 @@ export const Discover = () => {
     dispatch(discoverSetPagination({ current: pageNumber }));
   };
 
+  const onSortChange = (value: string) => {
+    dispatch(discoverSetOptions({ sort: value }));
+  };
+
+  const onGenreChange = (value: string) => {
+    dispatch(discoverSetOptions({ genres: value }));
+  };
+
+  const onYearChange = (value: string) => {
+    dispatch(discoverSetOptions({ genres: value }));
+  };
+
   return (
     <DiscoverWrapper id="discoverWrapper">
       <Heading>Dicover movies {counter}</Heading>
-      <FilterForm />
+      <FilterForm
+        onGenreChange={onGenreChange}
+        onSortChange={onSortChange}
+        onYearChange={onYearChange}
+      />
 
       {/* <MovieList /> */}
       {Array.isArray(movies) && (
