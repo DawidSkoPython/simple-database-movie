@@ -2,8 +2,14 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { globalThemeChange } from "src/redux/actions/global";
 import ThemeToggleWrapper from "./ThemeToggleWrapper";
+import Toggle from "./Toggle";
+import ToggleTrack from "./ToggleTrack";
 
-export const ThemeToggle = () => {
+type ThemeToggleProps = {
+  isMobile: boolean;
+};
+
+export const ThemeToggle: React.FC<ThemeToggleProps> = ({ isMobile }) => {
   const [isChecked, setIsChecked] = useState(false);
 
   const dispatch = useDispatch();
@@ -17,7 +23,12 @@ export const ThemeToggle = () => {
     }
   };
 
-  return <ThemeToggleWrapper onClick={onToggle}></ThemeToggleWrapper>;
+  // return <ThemeToggleWrapper onClick={onToggle}></ThemeToggleWrapper>;
+  return (
+    <Toggle isMobile={isMobile}>
+      <ToggleTrack></ToggleTrack>
+    </Toggle>
+  );
 };
 
 export default ThemeToggle;

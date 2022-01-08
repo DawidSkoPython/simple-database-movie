@@ -31,7 +31,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
             <Logo />
             {/* </LogoWrapper> */}
 
-            <ThemeToggle />
+            <ThemeToggle isMobile={isMobile} />
           </>
         ) : (
           <>
@@ -43,7 +43,7 @@ export const Header: React.FC<HeaderProps> = ({}) => {
             <Logo />
             {/* </LogoWrapper> */}
 
-            <ThemeToggle />
+            <ThemeToggle isMobile={isMobile} />
           </>
         )}
       </HeaderWrapper>
