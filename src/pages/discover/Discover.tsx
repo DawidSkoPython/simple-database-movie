@@ -103,11 +103,9 @@ export const Discover = () => {
       <Heading>Dicover movies {counter}</Heading>
       <FilterForm
         onGenreChange={(event: any) => {
-          console.log("EVENT: ", event);
           onGenreChange(event.target.value);
         }}
         onSortChange={(event: any) => {
-          console.log("EVENT: ", event);
           onSortChange(event.target.value);
         }}
         onYearChange={(event: any) => onYearChange(event.target.value)}
