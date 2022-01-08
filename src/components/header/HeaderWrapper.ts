@@ -5,6 +5,9 @@ const HeaderWrapper = styled.div`
   width: 100%;
   margin-right: auto;
   margin-left: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   @media (max-width: 576px) {
     display: flex;

@@ -7,6 +7,9 @@ const ToggleTrack = styled.div`
   border-radius: 30px;
   background-color: ${(props) => props.theme.colors.background};
   transition: all 0.2s ease;
+  display: flex;
+  align-content: center;
+  margin: 0 auto;
 `;
 
 export default ToggleTrack;

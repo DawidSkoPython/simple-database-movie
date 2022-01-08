@@ -113,7 +113,6 @@ export const Discover = () => {
         onYearChange={(event: any) => onYearChange(event.target.value)}
       />
 
-      {/* <MovieList /> */}
       {Array.isArray(movies) && (
         <MovieList
           movies={movies as any[]}
