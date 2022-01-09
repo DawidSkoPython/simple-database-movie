@@ -41,7 +41,7 @@ export const Pagination: React.FC<PaginationProps> = ({
     <PaginationWrapper>
       <PaginationStyled>
         {current > 1 && (
-          <Button onClick={() => onPageChange(current - 1)}>← Previous</Button>
+          <Button onClick={() => onPageChange(current - 1)}>←</Button>
         )}
         {pagesToShow.map((page: number) => (
           <PageNumber
@@ -53,7 +53,7 @@ export const Pagination: React.FC<PaginationProps> = ({
           </PageNumber>
         ))}
         {current < total && (
-          <Button onClick={() => onPageChange(current + 1)}> Next →</Button>
+          <Button onClick={() => onPageChange(current + 1)}>→</Button>
         )}
       </PaginationStyled>
     </PaginationWrapper>
