@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   /* font-family: "Bowlby One SC", cursive; */
-  font-family: Karla;
+  font-family: Mukta;
   /* font-weight: 300; */
   /* margin: 0 var(--commonMargin) 0 var(--commonMargin); */
   margin-right: auto;

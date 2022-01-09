@@ -2,28 +2,30 @@
   font-family: "Bebas Neue";
   font-style: normal;
   font-weight: 500;
-  src: local("Bebas Neue Bold"), url("./fonts/BebasNeueBold.woff2") format("woff2");
+  src: local("Bebas Neue Bold"),
+    url("./fonts/BebasNeueBold.woff2") format("woff2");
 }
 
 @font-face {
   font-family: "Fjalla One";
   font-style: normal;
   font-weight: 300;
-  src: local("Fjalla One Regular"), url("./fonts/FjallaOneRegular.woff2") format("woff2");
+  src: local("Fjalla One Regular"),
+    url("./fonts/FjallaOneRegular.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: "Karla";
+  font-family: "Mukta";
   font-style: normal;
   font-weight: 300;
-  src: local("Karla Regular"), url("./fonts/KarlaRegular.woff2") format("woff2");
+  src: url("./fonts/Mukta-Regular.ttf");
 }
 
 @font-face {
-  font-family: "Karla";
+  font-family: "Mukta";
   font-style: normal;
   font-weight: bold;
-  src: local("Karla Bold"), url("./fonts/KarlaBold.woff2") format("woff2");
+  src: url("./fonts/Mukta-Bold.ttf");
 }
 
 @font-face {
