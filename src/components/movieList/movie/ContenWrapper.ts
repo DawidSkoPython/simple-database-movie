@@ -5,7 +5,7 @@ const ContentWrapper = styled.div`
   height: 278px;
   width: 100%;
   position: relative;
-  padding: 10px 15px;
+  padding: 10px 15px 16px;
 
   @media (max-width: 576px) {
     flex: 100%;

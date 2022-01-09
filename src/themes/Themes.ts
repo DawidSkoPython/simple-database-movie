@@ -12,25 +12,25 @@ export type Theme = {
 const Themes: ThemesProps = {
   light: {
     colors: {
-      primary: "#F51A73",
-      secondary: "#161616",
+      primary: "#532473",
+      secondary: "#532473",
       background: "#F2F2F2",
       text: "#0D0D0D",
       mobileMenuOverlay: "#000000",
       card: "#FFFFFF",
-      themeToggleThumb: "#161616",
+      themeToggleThumb: "#0D0D0D",
       paginationHover: "#CDCDCD",
     },
   },
   dark: {
     colors: {
-      primary: "#F51A73",
-      secondary: "#090909",
+      primary: "#532473",
+      secondary: "#532473",
       background: "#0D0D0D",
       text: "#F2F2F2",
       mobileMenuOverlay: "#FFFFFF",
       card: "#090909",
-      themeToggleThumb: "#FFFFFF",
+      themeToggleThumb: "#F2F2F2",
       paginationHover: "#292929",
     },
   },

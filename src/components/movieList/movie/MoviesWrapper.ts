@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 const MovieWrapper = styled.div`
+  margin-right: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   background-color: ${(props) => props.theme.colors.card};
   width: calc(50% - 1em);
