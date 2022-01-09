@@ -71,7 +71,7 @@ export const Discover = () => {
               return dispatch(discoverSetPagination({ total: totalPages }));
             } catch (e) {
               // ("SOMETHING IS WRONG?");
-              return "xddd";
+              return "ERROR";
             }
           }
         )
@@ -100,7 +100,7 @@ export const Discover = () => {
 
   return (
     <DiscoverWrapper id="discoverWrapper">
-      <Heading>Dicover movies {counter}</Heading>
+      <Heading>Disover your favourite movie {counter}</Heading>
       <FilterForm
         onGenreChange={(event: any) => {
           onGenreChange(event.target.value);
