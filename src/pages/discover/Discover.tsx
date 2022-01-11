@@ -100,7 +100,7 @@ export const Discover = () => {
 
   return (
     <DiscoverWrapper id="discoverWrapper">
-      <Heading>Disover your favourite movie {counter}</Heading>
+      <Heading>Explore what’s streaming {counter}</Heading>
       <FilterForm
         onGenreChange={(event: any) => {
           onGenreChange(event.target.value);
